@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Quastion</th>
+        <th scope="col">Published</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of messagesArray">
+        <th scope="row">{{message.name}}</th>
+        <td>{{message.phone}}</td>
+        <td>{{message.email}}</td>
+        <td>{{message.message}}</td>
+        <td>
+          <span class="hover-cursor" [class.text-success]="message.published" (click)="alterCheck(message.$key,message.published)">
+            <i class="fa fa-lg" [ngClass]="message.published?'fa-check-circle-o':'fa-circle-thin'"></i>
+          </span>
+          <span class="hover-cursor text-danger pull-right" (click)="onDelete(message.$key)">
+            <i class="fa fa-trash-o fa-lg"></i>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
