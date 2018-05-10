@@ -29,13 +29,6 @@ export class ControlComponent implements OnInit {
         });
       });
   }
-  onAdd(name, message, phone, email) {
-    this.controlService.addMessage(name.value, message.value, phone.value, email.value);
-    name.value = '';
-    message.value = '';
-    phone.value = '';
-    email.value = '';
-  }
   alterCheck($key: string, published) {
     this.controlService.publishMessage($key, !published);
   }

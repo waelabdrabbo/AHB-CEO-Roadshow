@@ -1,0 +1,16 @@
+<div class="idel">
+    <div *ngFor="let message of messagesArray">
+      <div *ngIf="!message.published"> 
+          <div *ngIf="messagesArray.indexOf(message) > 1"  class="logo">
+              <img src="../../assets/logo-white.svg" alt="AHB Logo">
+              <h1>AHB Questions for the CEO</h1>
+              <!-- <div *ngIf="messagesArray.indexOf(message) > 1" class="h1">www</div> -->
+            </div>
+      </div>
+
+        <div *ngIf="message.published">
+          <p>{{message.message}}</p>
+        </div>
+      </div>
+</div>
+<!-- You can now use your library component in app.component.html -->

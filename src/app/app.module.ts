@@ -8,19 +8,24 @@ import { environment } from '../environments/environment';
 import { ControlComponent } from './control/control.component';
 import { ControlService } from './control/shared/control.service';
 import { SenderComponent } from './sender/sender.component';
-import { ReciverComponent } from './reciver/reciver.component';
+import { ReceiverComponent } from './receiver/receiver.component';
+import { FormsModule } from '@angular/forms';
+import { SlickModule } from 'ngx-slick';
+
 @NgModule({
   declarations: [
     AppComponent,
     ControlComponent,
     SenderComponent,
-    ReciverComponent
+    ReceiverComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    SlickModule.forRoot()
   ],
   providers: [ControlService],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlService } from '../control/shared/control.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Form } from '../form';
 
 @Component({
   selector: 'app-sender',
@@ -9,8 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./sender.component.scss']
 })
 export class SenderComponent implements OnInit {
-  form: FormGroup;
   messagesArray: any[];
+  submitted = false;
   constructor(private controlService: ControlService,
     // private formBuilder: FormBuilder
   ) { }
@@ -38,11 +37,25 @@ export class SenderComponent implements OnInit {
         });
       });
   }
+
+  onSubmit() { this.submitted = true; }
+
   onAdd(name, message, phone, email) {
     this.controlService.addMessage(name.value, message.value, phone.value, email.value);
-    // name.value = '';
-    // message.value = '';
-    // phone.value = '';
-    // email.value = '';
+    name.value = '';
+    message.value = '';
+    phone.value = '';
+    email.value = '';
+  }
+  addSlide() {
+    this.controlService.slides.push({ img: 'http://placehold.it/350x150/777777' });
+  }
+
+  removeSlide() {
+    this.controlService.slides.length = this.controlService.slides.length - 1;
+  }
+
+  afterChange(e) {
+    console.log('afterChange');
   }
 }

@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+html, body {
+    height: 100%;
+}
+h1 {
+    font-family: 'Roboto';
+    font-weight: bold;
+}
 .hover-cursor {
     cursor: pointer;
 }
